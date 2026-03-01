@@ -31,7 +31,7 @@ SELECT ProductKey, EnglishProductName, Color, ListPrice
 FROM DimProduct
 ORDER BY Color DESC, ListPrice DESC
 -- The left one attribute gets the priority
--- Output of this query attached in the file 4_Query_result1.csv
+-- Output of this query attached in the file 3_Query_result1.csv
 
 --We can also use order number instead of column name,
 -- like below we use 1 (which means first column in the SELECT Statement)
