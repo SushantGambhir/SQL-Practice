@@ -32,3 +32,14 @@ CREATE TABLE Employees(
 -- Now this will give error
 INSERT INTO Employees
 VALUES(1,NULL,'2022-11-24',30000)
+
+DROP TABLE Employees
+
+-- We can also add unique constraint which will not allow duplicate values for that column
+CREATE TABLE Employees(
+	EmployeeID INT PRIMARY KEY,
+	EmployeeName VARCHAR(100) NOT NULL,
+	DOJ DATETIME,
+	Salary FLOAT,
+	Email VARCHAR(50) UNIQUE
+)
