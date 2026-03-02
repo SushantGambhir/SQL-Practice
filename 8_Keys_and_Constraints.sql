@@ -60,3 +60,22 @@ CREATE TABLE Employees(
 )
 
 -- Side note: Char data type is used we expect an exact number of characters
+
+DROP TABLE Employees
+
+-- Default constraint. Will take this value if not specified
+CREATE TABLE Employees(
+	EmployeeID INT PRIMARY KEY,
+	EmployeeName VARCHAR(100) NOT NULL,
+	DOJ DATETIME,
+	Salary FLOAT CHECK(Salary>=10000),
+	Email VARCHAR(50) UNIQUE,
+	Gender CHAR(1) CHECK (Gender IN('M','F')),
+	City VARCHAR(30) DEFAULT 'London'
+)
+
+INSERT INTO Employees(EmployeeID,EmployeeName,DOJ,Salary,Email,Gender)
+VALUES(1,'Jack','2022-11-24',30000,'t@t.com','M')
+
+SELECT * FROM Employees
+-- City will be London
