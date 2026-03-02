@@ -43,3 +43,20 @@ CREATE TABLE Employees(
 	Salary FLOAT,
 	Email VARCHAR(50) UNIQUE
 )
+
+-- In UNIQUE constraint it allows NULL but only once (Since every value should be UNIQUE)
+
+DROP TABLE Employees
+
+-- Check constraint. We can add a Boolean condition here
+CREATE TABLE Employees(
+	EmployeeID INT PRIMARY KEY,
+	EmployeeName VARCHAR(100) NOT NULL,
+	DOJ DATETIME,
+	Salary FLOAT CHECK(Salary>=10000),
+	Email VARCHAR(50) UNIQUE,
+	Gender CHAR(1) CHECK (Gender = 'M' OR Gender = 'F')
+-- Gender IN('M','F') can also be used
+)
+
+-- Side note: Char data type is used we expect an exact number of characters
