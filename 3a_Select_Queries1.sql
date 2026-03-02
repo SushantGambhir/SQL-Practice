@@ -39,3 +39,23 @@ ORDER BY Color DESC, ListPrice DESC
 SELECT ProductKey, EnglishProductName, Color, ListPrice 
 FROM DimProduct
 ORDER BY 1
+
+-- Duplicate a table into another table
+SELECT *
+INTO DimProduct_Bk
+FROM DimProduct
+
+SELECT * 
+FROM DimProduct_Bk
+
+DROP TABLE DimProduct_Bk
+
+SELECT *
+INTO DimProduct_Red
+FROM DimProduct
+WHERE Color='Red'
+
+SELECT * 
+FROM DimProduct_Red
+
+DROP TABLE DimProduct_Red
