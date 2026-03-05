@@ -31,3 +31,11 @@ SELECT TRIM('   HE LLO   ')
 -- Output: 'HE LLO'
 -- LTRIM only removes the blank spaces on left side of first non blank character
 -- RTRIM ony removes the blank spaces on right side of last non blank character
+
+-- REPLACE function is used to replace one substring with another
+-- Syntax: REPLACE(Expression, Substring to be replaced, The new result substring)
+
+--REVERSE(Expression) reverses the string
+
+--STUFF(Expression, Starting Index, Number of characters, The new result substring)
+-- Function used to replace substring by specifying characters indices
