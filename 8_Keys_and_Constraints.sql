@@ -79,3 +79,20 @@ VALUES(1,'Jack','2022-11-24',30000,'t@t.com','M')
 
 SELECT * FROM Employees
 -- City will be London
+
+DROP TABLE Employees
+
+-- Auto increment feature
+-- We have IDENTITY function which automatically increments the value
+-- Syntax: IDENTITY(Starting point, How much increment)
+-- Can also use negative increment
+
+CREATE TABLE Employees(
+	EmployeeID INT PRIMARY KEY IDENTITY(1,1),
+	EmployeeName VARCHAR(100) NOT NULL,
+	DOJ DATETIME,
+	Salary FLOAT CHECK(Salary>=10000),
+	Email VARCHAR(50) UNIQUE,
+	Gender CHAR(1) CHECK (Gender IN('M','F')),
+	City VARCHAR(30) DEFAULT 'London'
+)
