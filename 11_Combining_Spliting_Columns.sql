@@ -45,3 +45,15 @@ LEFT(FullName,CHARINDEX(' ',FullName)-1) AS FirstName,
 RIGHT(FullName,LEN(FullName) - CHARINDEX(' ',FullName,CHARINDEX(' ',FullName)+1)) 
 AS LastName 
 From DimEmployee
+-- - CHARINDEX(' ', FullName)
+-- Finds the position of the first space in the FullName.
+-- - CHARINDEX(' ', FullName, CHARINDEX(' ', FullName) + 1)
+-- This is a nested call. It finds the position of the second space in the FullName.
+-- - First CHARINDEX(' ', FullName) gives the first space.
+-- - Adding +1 starts searching right after that, so the second CHARINDEX finds the next space.
+-- - LEN(FullName)
+-- Returns the total length of the string.
+-- - LEN(FullName) - CHARINDEX(...second space...)
+-- Calculates how many characters are after the second space.
+-- - RIGHT(FullName, …)
+-- Extracts that many characters from the right side of the string.
