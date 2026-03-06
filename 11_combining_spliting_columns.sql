@@ -34,3 +34,6 @@ SELECT
 CONCAT_WS(SPACE(1),FirstName,MiddleName,LastName) 
 AS NAME
 FROM DimEmployee
+
+-- In the above table there is no FullName column but assume there is 
+-- (Later on in this repo we will see how its done, but not now)
