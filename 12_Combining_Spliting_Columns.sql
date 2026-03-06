@@ -37,3 +37,11 @@ FROM DimEmployee
 
 -- In the above table there is no FullName column but assume there is 
 -- (Later on in this repo we will see how its done, but not now)
+-- For now just assume this column exists
+-- We want to split it into first, middle, last name
+-- For this we use CHARINDEX function
+SELECT FullName, 
+LEFT(FullName,CHARINDEX(' ',FullName)-1) AS FirstName,
+RIGHT(FullName,LEN(FullName) - CHARINDEX(' ',FullName,CHARINDEX(' ',FullName)+1)) 
+AS LastName 
+From DimEmployee
