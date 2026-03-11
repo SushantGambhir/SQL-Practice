@@ -47,3 +47,8 @@ ON SalesTran.ProductID = Products.ProductID
 -- Matching rows from both tables will be there
 -- Additionally remaining rows from the Left table will also be there
 -- Just that the columns of the other table will have NULL in those columns
+
+-- The opposite of LEFT JOIN we have RIGHT JOIN
+SELECT * FROM SalesTran
+RIGHT JOIN Products
+ON Products.ProductID = SalesTran.ProductID
