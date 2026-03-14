@@ -8,8 +8,8 @@ FROM DimProduct P
 JOIN FactInternetSales F
 ON P.ProductKey = F.ProductKey
 
--- Left Join
+-- Left Join with DimProduct on Left
 SELECT P.ProductKey, P.EnglishProductName, F.SalesAmount
 FROM DimProduct P
-JOIN FactInternetSales F
+LEFT JOIN FactInternetSales F
 ON P.ProductKey = F.ProductKey
