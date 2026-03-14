@@ -21,3 +21,19 @@ FROM DimProduct P
 LEFT JOIN FactInternetSales F
 ON P.ProductKey = F.ProductKey
 WHERE F.ProductKey IS NULL
+
+-- Total Sales for each EnglishProductName
+SELECT P.EnglishProductName,
+SUM(F.SalesAmount) AS TotalSales
+FROM DimProduct P
+JOIN FactInternetSales F
+ON P.ProductKey = F.ProductKey
+GROUP BY P.EnglishProductName
+
+-- Total Sales for each pair of EnglishProductName and ProductKey
+SELECT P.EnglishProductName, P.ProductKey,
+SUM(F.SalesAmount) AS TotalSales
+FROM DimProduct P
+JOIN FactInternetSales F
+ON P.ProductKey = F.ProductKey
+GROUP BY P.EnglishProductName, P.ProductKey
