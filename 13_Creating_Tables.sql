@@ -32,3 +32,29 @@ VALUES
 
 SELECT * FROM SalesTran
 SELECT * FROM Products
+
+CREATE TABLE tblEmps(
+    EmployeeId INT PRIMARY KEY,
+    ParentEmployeeId INT,
+    EmployeeName VARCHAR(100),
+    Title VARCHAR(100),
+    Salary NUMERIC(10,2)
+)
+
+INSERT INTO tblEmps(EmployeeId,EmployeeName,Title,Salary)
+VALUES
+(1,'John Smith','Founder','1000000')
+
+INSERT INTO tblEmps
+VALUES
+(2,1,'Sam Cook','CEO','500000'),
+(3,2,'Amanda Johnson','Senior VP','500000'),
+(4,3,'Mike Henry','VP','1000000'),
+(5,4,'Rakesh Dev','Manager','400000'),
+(6,5,'Rehan Shaikh','Architect','500000'),
+(7,5,'Ankit Kumar','Lead Developer','600000'),
+(8,7,'Aman Patel','Associate','300000'),
+(9,7,'Joe Stone','Associate','150000'),
+(10,7,'Michael Woods','Associate','140000')
+
+SELECT * FROM tblEmps
