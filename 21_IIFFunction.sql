@@ -16,3 +16,8 @@ SELECT ProductKey, EnglishProductName, Color,
 IIF(Color='Red','Yes',IIF(Color='Silver','Silver','Neither')) 
 AS IsRedOrSilver
 FROM DimProduct
+
+SELECT ProductKey, EnglishProductName, Color,
+IIF(ListPrice>=3000,'High',IIF(ListPrice>=2000,'Average','Low')) 
+AS PriceLevel
+FROM DimProduct
