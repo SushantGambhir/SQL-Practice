@@ -28,7 +28,13 @@ SELECT * FROM tblEmps2
 -- Difference from Inner Join: Inner Join check match on specified columns
 -- Intersect checks for all columns specified in SELECT statement
 
--- Union and Intersect are applicable only when following conditions are satisfied
+-- Excect is similar to Set Difference in Set Theory
+SELECT * FROM tblEmps
+EXCEPT
+SELECT * FROM tblEmps2
+-- Will return rows which are present in tblEmps which are not present in tblEmps2
+
+-- Union, Intersect, Except are applicable only when following conditions are satisfied
 -- 1. Same Number of Columns
 -- 2. Compatible Data Types
 -- 3. Column Order Matters
