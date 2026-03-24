@@ -25,3 +25,15 @@ END
 AS ColorPriceLevel
 FROM DimProduct
 WHERE Color <> 'NA' AND ListPrice IS NOT NULL
+
+--
+SELECT EmployeeKey,FirstName, DepartmentName,
+ CASE DepartmentName
+            WHEN 'Sales' THEN 1
+            WHEN 'Finance' THEN 2
+            WHEN 'Engineering' THEN 3
+            WHEN 'Marketing' THEN 4
+            ELSE 5
+        END AS Category
+FROM DimEmployee
+ORDER BY Category
