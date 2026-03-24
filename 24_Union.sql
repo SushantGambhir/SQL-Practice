@@ -20,6 +20,14 @@ SELECT EmployeeId, EmployeeName, NULL, Salary FROM tblEmps
 UNION ALL
 SELECT EmployeeId, EmployeeName, Title, Salary FROM tblEmps2
 
+-- Take mathematical Intersection of both tables like in Set Theory
+SELECT * FROM tblEmps
+INTERSECT
+SELECT * FROM tblEmps2
+
+-- Difference from Inner Join: Inner Join check match on specified columns
+-- Intersect checks for all columns specified in SELECT statement
+
 -- Union and Intersect are applicable only when following conditions are satisfied
 -- 1. Same Number of Columns
 -- 2. Compatible Data Types
