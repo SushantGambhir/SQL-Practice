@@ -1,6 +1,7 @@
 SELECT ProductKey, EnglishProductName, Color
 FROM DimProduct
 
+--
 SELECT ProductKey, EnglishProductName, Color,
 CASE Color
     WHEN 'Red' THEN 'R'
@@ -9,6 +10,7 @@ END
 FROM DimProduct
 WHERE Color <> 'NA'
 
+--
 SELECT ProductKey, EnglishProductName, Color,
 CASE Color
     WHEN 'Red' THEN 'R'
@@ -20,6 +22,7 @@ AS ColorCode
 FROM DimProduct
 WHERE Color <> 'NA'
 
+--
 SELECT ProductKey, EnglishProductName, Color,
 CASE
     WHEN ListPrice>=3000 THEN 'High'
