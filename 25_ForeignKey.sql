@@ -1,5 +1,4 @@
-SELECT * FROM SalesTran LEFT JOIN Products
-ON SalesTran.ProductID = Products.ProductID
+-- Foreign Key is column(s) which refers to primary key of any table
 
 CREATE TABLE Products2(
     ProductID INT PRIMARY KEY,
@@ -31,3 +30,6 @@ VALUES
 (1,'SOB985',7,2100.00),
 (2,'SOB986',8,4000.00),
 (4,'SOB987',10,838.00)
+
+-- We cannot insert in referencing table if the foreign key value does not have 
+-- same value in referenced table
