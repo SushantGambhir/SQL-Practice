@@ -17,3 +17,12 @@ SET BaseRate = BaseRate * 1.1
 WHERE SalesTerritoryKey
 IN
 (SELECT SalesTerritoryKey FROM DimSalesTerritory WHERE SalesTerritoryCountry = 'Canada')
+
+-- Average transactions done by users
+SELECT AVG(TotalTransactions) AS AvgTransaction FROM 
+(
+SELECT CustomerKey, COUNT(*) AS TotalTransactions
+FROM FactInternetSales
+GROUP BY CustomerKey
+)
+AS T
