@@ -15,3 +15,16 @@ SELECT * FROM FactInternetSales
 WHERE SalesAmount >
 (SELECT AVG(SalesAmount) FROM FactInternetSales)
 ORDER BY SalesAmount
+
+-- We want FactInternetSales information for products of color Red
+
+-- Way 1: Join
+SELECT F.* FROM FactInternetSales F
+JOIN DimProduct P
+ON F.ProductKey = P.ProductKey
+WHERE P.Color='Red'
+
+-- Way 2: Subquery
+SELECT * FROM FactInternetSales
+WHERE ProductKey IN
+(SELECT ProductKey FROM DimProduct WHERE Color='Red')
