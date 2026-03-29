@@ -21,3 +21,5 @@ SELECT ProductKey FROM DimProduct P
 WHERE F.ProductKey = P.ProductKey
 AND Color='Red'
 )
+-- In above subquery we are reffering to the outer table in the subquery. Such queries are called
+-- Co related subqueries
