@@ -27,6 +27,7 @@ AND Color='Red'
 
 -- Problem Statement: We want to display percentage contribution of each year out of total sales
 SELECT YEAR(OrderDate) AS OrderYear,SUM(SalesAmount) AS TotalSales,
-(SUM(SalesAmount)*100/(SELECT SUM(SalesAmount) FROM FactInternetSales)) AS PercentageContribution
+FORMAT((SUM(SalesAmount)/(SELECT SUM(SalesAmount) FROM FactInternetSales)),'P') AS PercentageContribution
 FROM FactInternetSales
 GROUP BY YEAR(OrderDate)
+ORDER BY YEAR(OrderDate)
