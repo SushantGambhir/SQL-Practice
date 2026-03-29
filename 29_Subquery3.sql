@@ -13,3 +13,11 @@ WHERE NOT EXISTS
 SELECT ProductKey FROM DimProduct WHERE Color='Red'
 )
 
+-- Now we intend to display FactInternetSales details for Red color product using EXISTS
+SELECT * FROM FactInternetSales F
+WHERE EXISTS
+(
+SELECT ProductKey FROM DimProduct P 
+WHERE F.ProductKey = P.ProductKey
+AND Color='Red'
+)
