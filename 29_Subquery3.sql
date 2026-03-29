@@ -23,3 +23,10 @@ AND Color='Red'
 )
 -- In above subquery we are reffering to the outer table in the subquery. Such queries are called
 -- Co related subqueries
+
+
+-- Problem Statement: We want to display percentage contribution of each year out of total sales
+SELECT YEAR(OrderDate) AS OrderYear,SUM(SalesAmount) AS TotalSales,
+(SUM(SalesAmount)*100/(SELECT SUM(SalesAmount) FROM FactInternetSales)) AS PercentageContribution
+FROM FactInternetSales
+GROUP BY YEAR(OrderDate)
