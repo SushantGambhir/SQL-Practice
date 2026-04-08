@@ -23,4 +23,13 @@ VALUES
 ('Sudeep','Delhi','IT',36000),
 ('Sanket','Pune','IT',40000)
 
-SELECT * FROM Employees
+-- Window Function 1: ROW_NUMBER()
+SELECT EmpName,City,Department,Salary,
+ROW_NUMBER() OVER(ORDER BY EmpName) AS RowNum
+FROM Employees
+
+-- Now each row for each city value will have unique RowNum value
+-- For each city the counting will be 1 to n based on number of entries having that city
+SELECT EmpName,City,Department,Salary,
+ROW_NUMBER() OVER(PARTITION BY City ORDER BY EmpName) AS RowNum
+FROM Employees
