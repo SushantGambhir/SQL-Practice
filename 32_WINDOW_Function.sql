@@ -23,6 +23,7 @@ VALUES
 ('Sudeep','Delhi','IT',36000),
 ('Sanket','Pune','IT',40000)
 
+-- Must try running each query for this for better understanding
 -- Window Function 1: ROW_NUMBER()
 SELECT EmpName,City,Department,Salary,
 ROW_NUMBER() OVER(ORDER BY EmpName) AS RowNum
@@ -32,4 +33,15 @@ FROM Employees
 -- For each city the counting will be 1 to n based on number of entries having that city
 SELECT EmpName,City,Department,Salary,
 ROW_NUMBER() OVER(PARTITION BY City ORDER BY EmpName) AS RowNum
+FROM Employees
+
+-- Similar qeury for Department
+SELECT EmpName,City,Department,Salary,
+ROW_NUMBER() OVER(PARTITION BY Department ORDER BY EmpName) AS RowNum
+FROM Employees
+
+-- Both City and Department
+-- Windowing will happen for each unique combo of City and Department
+SELECT EmpName,City,Department,Salary,
+ROW_NUMBER() OVER(PARTITION BY Department,City ORDER BY EmpName) AS RowNum
 FROM Employees
