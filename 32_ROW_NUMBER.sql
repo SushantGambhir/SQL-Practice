@@ -41,7 +41,7 @@ ROW_NUMBER() OVER(PARTITION BY Department ORDER BY EmpName) AS RowNum
 FROM Employees
 
 -- Both City and Department
--- Windowing will happen for each unique combo of City and Department
+-- Partition will happen for each unique combo of City and Department
 SELECT EmpName,City,Department,Salary,
 ROW_NUMBER() OVER(PARTITION BY Department,City ORDER BY EmpName) AS RowNum
 FROM Employees
