@@ -1,4 +1,4 @@
--- Window function 2: RANK()
+-- Window function 2 & 3: RANK() & DENSE_RANK()
 -- Assign rank to each employee based on salary (the one with highest salary should be rank 1)
 SELECT EmployeeId, EmpName,City,Department,Salary,
 RANK() OVER(ORDER BY Salary DESC) AS SalaryRank
