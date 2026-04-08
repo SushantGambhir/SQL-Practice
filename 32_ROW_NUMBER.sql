@@ -23,7 +23,7 @@ VALUES
 ('Sudeep','Delhi','IT',36000),
 ('Sanket','Pune','IT',40000)
 
--- Must try running each query for this for better understanding
+-- Must try running each query for this for better understanding for each WINDOW function
 -- Window Function 1: ROW_NUMBER()
 SELECT EmpName,City,Department,Salary,
 ROW_NUMBER() OVER(ORDER BY EmpName) AS RowNum
