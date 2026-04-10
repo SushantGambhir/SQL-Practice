@@ -30,3 +30,4 @@ ALTER COLUMN EmpId INT NOT NULL
 ALTER TABLE EmpNew
 ADD CONSTRAINT Pk_empid PRIMARY KEY(EmpId)
 -- Here in the above query 'Pk_empid' is optional, we are just giving a name to the constraint
+-- The above query will work only if all entries in the column satisfies prerequisites to be the primary key
