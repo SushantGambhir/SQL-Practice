@@ -17,3 +17,16 @@ DROP COLUMN Phone, DOJ
 -- Modify existing Column
 ALTER TABLE Employees
 ALTER COLUMN EmpName VARCHAR(200)
+
+CREATE TABLE EmpNew(
+    EmpId INT,
+    EmpName VARCHAR(100)
+)
+
+-- Add constraint which were not defined during table creation
+ALTER TABLE EmpNew
+ALTER COLUMN EmpId INT NOT NULL
+
+ALTER TABLE EmpNew
+ADD CONSTRAINT Pk_empid PRIMARY KEY(EmpId)
+-- Here in the above query 'Pk_empid' is optional, we are just giving a name to the constraint
