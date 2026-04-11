@@ -21,3 +21,10 @@ SELECT * FROM Vendors
 SELECT COALESCE(NULL,1) -- OP: 1
 SELECT COALESCE(NULL,11,100,NULL,50) -- OP: 11
 
+SELECT VendorID,VendorName,
+COALESCE(Yearly,HalfYearly,Quaterly,Monthly) AS FirstNonNull
+FROM Vendors
+
+SELECT VendorID,VendorName,
+COALESCE(Yearly,HalfYearly*2,Quaterly*4,Monthly*12) AS AnnualValue
+FROM Vendors
