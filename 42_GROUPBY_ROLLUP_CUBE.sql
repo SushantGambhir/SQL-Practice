@@ -16,3 +16,9 @@ GROUP BY ROLLUP(YEAR(OrderDate),FORMAT(OrderDate,'MMM'))
 -- SalesByYear column will have sum total for that year
 -- 4. In the end NULL in OrderYear, MonthNm, and sum total of 
 -- all values in SalesByYear at the bottom of table
+
+SELECT ISNULL(FORMAT(OrderDate,'yyyy'),'Grand Total') AS OrderYear,
+SUM(SalesAmount) AS SalesByYear
+FROM FactInternetSales
+GROUP BY ROLLUP(FORMAT(OrderDate,'yyyy'))
+-- Giving specified text instead of NULL
