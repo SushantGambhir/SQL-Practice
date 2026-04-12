@@ -9,3 +9,10 @@ PIVOT (SUM(Salary) FOR Department IN(IT,Sales)) AS P
 -- City, IT, Sales
 -- IT and Sales will have sum of salaries values
 -- City is row identifier, Department is column to pivot, SUM(Salary) is aggregate measure
+
+-- We also have UNPIVOT, where we convert columns into rows
+SELECT * INTO PivotData FROM (
+SELECT City, Department, Salary FROM Employees) AS T
+PIVOT (SUM(Salary) FOR Department IN(IT,Sales)) AS P
+
+SELECT * FROM PivotData
