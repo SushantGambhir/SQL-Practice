@@ -6,4 +6,4 @@ SELECT * FROM DimProduct
 
 SELECT * FROM VwSelectData
 
--- View acts as a security layer on top of the existing able
+-- View acts as a security layer on top of the existing table
