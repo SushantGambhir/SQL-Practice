@@ -30,3 +30,4 @@ FROM FactInternetSales
 GROUP BY ROLLUP
 (FORMAT(OrderDate,'yyyy'),FORMAT(OrderDate,'MMM'))
 -- Same thing for the second query
+
