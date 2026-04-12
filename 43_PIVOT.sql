@@ -1,6 +1,6 @@
 --PIVOT operator is used to transform rows into columns, 
 --making data summaries easier to read and analyze. 
---It’s especially useful for reporting when you want to aggregate values
+--Its especially useful for reporting when you want to aggregate values
 
 SELECT * FROM (
 SELECT City, Department, Salary FROM Employees) AS T
