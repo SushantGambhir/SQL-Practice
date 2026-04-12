@@ -22,3 +22,11 @@ SUM(SalesAmount) AS SalesByYear
 FROM FactInternetSales
 GROUP BY ROLLUP(FORMAT(OrderDate,'yyyy'))
 -- Giving specified text instead of NULL
+
+SELECT ISNULL(FORMAT(OrderDate,'yyyy'),'Grand Total') AS OrderYear, 
+ISNULL(FORMAT(OrderDate,'MMM'),FORMAT(OrderDate,'yyyy')+' Total') AS MonthNm,
+SUM(SalesAmount) AS SalesByYear
+FROM FactInternetSales
+GROUP BY ROLLUP
+(FORMAT(OrderDate,'yyyy'),FORMAT(OrderDate,'MMM'))
+-- Same thing for the second query
