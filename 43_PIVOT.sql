@@ -16,3 +16,7 @@ SELECT City, Department, Salary FROM Employees) AS T
 PIVOT (SUM(Salary) FOR Department IN(IT,Sales)) AS P
 
 SELECT * FROM PivotData
+
+SELECT * FROM (
+SELECT City, IT, Sales FROM PivotData) AS T
+UNPIVOT(Salary FOR Department IN(IT,Sales)) AS U
