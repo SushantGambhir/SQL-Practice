@@ -20,3 +20,23 @@ AS
 SELECT ProductKey,OrderYear,SUM(SalesAmount) AS TotalSales
 FROM CteSelectData2
 GROUP BY ProductKey,OrderYear
+
+WITH CteSales
+AS
+(
+	SELECT ProductKey,SUM(SalesAmount) AS TotalSales FROM FactInternetSales  -- Giving alias here (TotalSales) is practically mandatory
+	GROUP BY ProductKey
+),
+CteProducts
+AS
+(
+	SELECT ProductKey, EnglishProductName FROM DimProduct
+)
+SELECT P.ProductKey,P.EnglishProductName, S.TotalSales 
+FROM CteSales S JOIN CteProducts P
+ON S.ProductKey = P.ProductKey
+
+SELECT P.ProductKey,P.EnglishProductName, SUM(S.SalesAmount) AS TotalSales 
+FROM FactInternetSales S JOIN DimProduct P
+ON S.ProductKey = P.ProductKey
+GROUP BY P.ProductKey, P.EnglishProductName;
