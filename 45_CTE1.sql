@@ -36,13 +36,3 @@ SELECT P.ProductKey,P.EnglishProductName, S.TotalSales
 INTO T1
 FROM CteSales S JOIN CteProducts P
 ON S.ProductKey = P.ProductKey
-
-SELECT P.ProductKey,P.EnglishProductName, SUM(S.SalesAmount) AS TotalSales 
-INTO T2
-FROM FactInternetSales S JOIN DimProduct P
-ON S.ProductKey = P.ProductKey
-GROUP BY P.ProductKey, P.EnglishProductName;
-
-SELECT * FROM T1
-EXCEPT
-SELECT * FROM T2
