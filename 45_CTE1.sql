@@ -33,6 +33,5 @@ AS
 	SELECT ProductKey, EnglishProductName FROM DimProduct
 )
 SELECT P.ProductKey,P.EnglishProductName, S.TotalSales 
-INTO T1
 FROM CteSales S JOIN CteProducts P
 ON S.ProductKey = P.ProductKey
