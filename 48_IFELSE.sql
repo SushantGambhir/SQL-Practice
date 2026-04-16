@@ -1,0 +1,2 @@
+DECLARE @x INT
+SET @x = 10

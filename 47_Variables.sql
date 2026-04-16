@@ -18,3 +18,8 @@ SET @y= 'World'
 SELECT @x, @y
 
 -- We must run all three (DECLARE, SET, SELECT) together. Only then they will work
+
+-- We can set default values
+DECLARE @x INT = 100
+
+SELECT @x
